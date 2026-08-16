@@ -39,7 +39,11 @@ CREATE TABLE IF NOT EXISTS `clientes_sisvo` (
   UNIQUE KEY `uq_db_name` (`db_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- La exportación de datos fue deseleccionada.
+-- Volcando datos para la tabla sisvo_central.clientes_sisvo: ~2 rows (aproximadamente)
+DELETE FROM `clientes_sisvo`;
+INSERT INTO `clientes_sisvo` (`id`, `nombre_empresa`, `subdominio`, `db_name`, `db_server`, `db_usuario`, `db_password`, `plan_contratado`, `estatus`, `fecha_alta`, `fecha_vencimiento`) VALUES
+	(1, 'Ferreteria', 'ferre', 'sisvo_ferreteria', 'localhost', 'root', '', 'premium', 1, '2026-08-08 22:44:51', '0000-00-00'),
+	(2, 'Abarrotes El Güero', 'abarrotes', 'sisvo_abarrotes', 'localhost', 'root', '', 'basico', 1, '2026-08-08 22:44:51', '0000-00-00');
 
 -- Volcando estructura para tabla sisvo_central.historial_pagos
 DROP TABLE IF EXISTS `historial_pagos`;
@@ -56,7 +60,8 @@ CREATE TABLE IF NOT EXISTS `historial_pagos` (
   CONSTRAINT `historial_pagos_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes_sisvo` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- La exportación de datos fue deseleccionada.
+-- Volcando datos para la tabla sisvo_central.historial_pagos: ~0 rows (aproximadamente)
+DELETE FROM `historial_pagos`;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
